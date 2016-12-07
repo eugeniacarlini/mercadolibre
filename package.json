@@ -1,0 +1,66 @@
+{
+  "name": "chico",
+  "version": "2.0.9",
+  "description": "Chico UI is a free and open source collection of easy-to-use web components for developers and designers.",
+  "author": "<chico@mercadolibre.com>",
+  "contributors": [
+    {
+      "name": "Guille Paz",
+      "email": "guille87paz@gmail.com"
+    },
+    {
+      "name": "Hernan Mammana",
+      "email": "hernanmammana@gmail.com"
+    },
+    {
+      "name": "Leandro Linares",
+      "email": "lean8086@gmail.com"
+    }
+  ],
+  "scripts": {
+    "start": "gulp dev",
+    "prepublish": "gulp lint && gulp dist && npm test",
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mercadolibre/chico.git"
+  },
+  "dependencies": {
+    "tiny.js": "^0.2.1"
+  },
+  "devDependencies": {
+    "Mesh": "mercadolibre/mesh#v4.2.0",
+    "autoprefixer": "^6.1.1",
+    "browser-sync": "^2.10.0",
+    "chai": "^3.4.1",
+    "chai-spies": "^0.7.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-load-plugins": "^1.0.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-wrapper": "^1.0.0",
+    "karma": "^1.1.0",
+    "karma-chai": "^0.1.0",
+    "karma-chai-spies": "^0.1.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.0.4",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "mocha": "^3.1.0",
+    "node-sass": "^3.8.0",
+    "phantomjs-prebuilt": "^2.1.7",
+    "postcss-filter-gradient": "^0.2.4",
+    "postcss-opacity": "^4.0.0",
+    "run-sequence": "^1.1.5",
+    "streamqueue": "^1.1.1"
+  },
+  "license": "MIT",
+  "engine": "node >= 0.12.0"
+}
