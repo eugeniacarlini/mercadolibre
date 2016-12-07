@@ -175,7 +175,7 @@ gulp.task('minifyJS:mobile', function () {
 // Start a BrowserSync server, which you can view at http://localhost:3040
 gulp.task('browser-sync', ['build'], function () {
     browserSync.init({
-        startPath: 'mercadolibre/chico/index.html',
+        startPath: 'mercadolibre/index.html',
         server: {
             baseDir: [
                 // base path for views and demo assets
