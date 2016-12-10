@@ -12,8 +12,9 @@ var postcssFilterGradient = require('postcss-filter-gradient');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('gulp-cssnano');
 var htmlmin = require('gulp-html-minifier');
-var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
+var concatCss = require('gulp-concat-css');
+var concat = require('gulp-concat');
 
 // UI JavaScript
 var uiJS = require('./libs/files/ui').JS;
@@ -50,13 +51,13 @@ gulp.task('copy', function () {
         .pipe(gulp.dest(distPath));
 });
 
-// Copy html file in source/ to public/
+// Copy html file in source to the root
 gulp.task('copyHTML', function() {
     return gulp.src('src/*.html')
       .pipe(gulp.dest('./'));
 });
 
-// Copy html file in source/ to public/
+// Minify the html file
 gulp.task('minifyHTML', ['copyHTML'], function() {
   gulp.src('./*.html')
     .pipe(htmlmin({ collapseWhitespace: true }))
@@ -107,18 +108,38 @@ gulp.task('sass:mobile', function () {
         .pipe(browserSync.stream());
 });
 
-// Minify the compiled CSS
-gulp.task('minifyCSS', function() {
-    return gulp.src('dist/**/*.css')
+// Minify CSS
+gulp.task('minifyCSS', [
+    'minifyCSS:ui',
+    'minifyCSS:mobile'
+]);
+
+gulp.task('minifyCSS:ui', function() {
+    return gulp.src('dist/ui/chico.css')
         .pipe(cssnano())
         .pipe($.rename({suffix: '.min'}))
-        .pipe(gulp.dest(distPath));
+        .pipe(gulp.dest('dist/ui/'));
 });
 
-// Concatenate and copy Chico JS
+gulp.task('minifyCSS:mobile', function() {
+    return gulp.src('dist/mobile/chico.css')
+        .pipe(cssnano())
+        .pipe($.rename({suffix: '.min'}))
+        .pipe(gulp.dest('dist/mobile/'));
+});
+
+// Concatenate all css minified files
+// gulp.task('concatCSS', function () {
+//     return gulp.src('dist/**/chico.min.css')
+//       .pipe(concatCss("bundle.css"))
+//       .pipe(gulp.dest(distPath));
+// });
+
+// Concatenate JS
 gulp.task('concatJS', [
     'concatJS:ui',
-    'concatJS:mobile'
+    'concatJS:mobile',
+    'concatJS'
 ]);
 
 gulp.task('concatJS:ui', function() {
@@ -149,6 +170,13 @@ gulp.task('concatJS:mobile', function() {
             header: banner.full
         }))
         .pipe(gulp.dest(path.join(distPath, 'mobile')));
+});
+
+// Concatenate js files including minified files and libs
+gulp.task('concatJS', function() {
+    return gulp.src(['src/libs/tiny.min.js', 'dist/**/chico.min.js', 'src/ui/scripts/main.js'])
+      .pipe(concat('bundle.js'))
+      .pipe(gulp.dest(distPath));
 });
 
 // Minify the JS
@@ -255,8 +283,7 @@ gulp.task('build', function (done) {
         'copy',
         'copyHTML',
         'minifyHTML',
-        'sass',
-        'concatJS'
+        'sass'
     ], done);
 });
 
@@ -264,14 +291,17 @@ gulp.task('build', function (done) {
 gulp.task('dist', function (done) {
     runSequence('build', [
         'minifyCSS',
-        'minifyJS'
+        'minifyJS',
+        // 'concatCSS',
+        'concatJS'
     ], done);
 });
 
 // Dev task: build the Chico and start a server
 gulp.task('dev', [
     'build',
-    'browser-sync'
+    'dist'
+    // 'browser-sync'
 ]);
 
 // Default task: run the dev

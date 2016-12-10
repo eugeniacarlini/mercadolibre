@@ -1,0 +1,31 @@
+// > Custom styles
+// ----------------------------------------------------------------
+
+.specs-product-container {
+  max-width: 800px;
+  min-width: 400px;
+  border: 1px solid gray;
+  padding: 30px;
+  margin: auto;
+  overflow: hidden;
+
+  .main-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .description-section {
+    overflow: hidden;
+
+    .product-image {
+      width: 40%;
+      float: left;
+      margin-right: 60px;
+    }
+
+    .product-info {
+      width: 52%;
+      float: left;
+    }
+  }
+}
