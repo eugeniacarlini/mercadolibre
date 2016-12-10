@@ -1495,6 +1495,7 @@ a.ch-btn-large:focus {
 
 /* Pagination */
 .ch-carousel-pages {
+  display: none;
   font-size: 0;
   line-height: 0;
   margin: 0 auto;
@@ -3079,7 +3080,7 @@ dl.ch-list dd {
 
 .specs-product-container {
   max-width: 800px;
-  min-width: 400px;
+  min-width: 800px;
   border: 1px solid gray;
   padding: 30px;
   margin: auto;
@@ -3104,6 +3105,12 @@ dl.ch-list dd {
 .specs-product-container .description-section .product-info {
   width: 52%;
   float: left;
+  padding-top: 30px;
+}
+
+.specs-product-container .description-section .product-info .product-form .label {
+  text-align: left;
+  width: auto;
 }
 
 .tabs {

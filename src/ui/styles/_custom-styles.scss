@@ -3,7 +3,7 @@
 
 .specs-product-container {
   max-width: 800px;
-  min-width: 400px;
+  min-width: 800px;
   border: 1px solid gray;
   padding: 30px;
   margin: auto;
@@ -26,6 +26,14 @@
     .product-info {
       width: 52%;
       float: left;
+      padding-top: 30px;
+
+      .product-form {
+        .label {
+          text-align: left;
+          width: auto;
+        }
+      }
     }
   }
 }
