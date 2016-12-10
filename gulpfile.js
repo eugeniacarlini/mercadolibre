@@ -10,6 +10,10 @@ var postcss = require('gulp-postcss');
 var postcssOpacity = require('postcss-opacity');
 var postcssFilterGradient = require('postcss-filter-gradient');
 var autoprefixer = require('autoprefixer');
+var cssnano = require('gulp-cssnano');
+var htmlmin = require('gulp-html-minifier');
+var cssmin = require('gulp-cssmin');
+var rename = require('gulp-rename');
 
 // UI JavaScript
 var uiJS = require('./libs/files/ui').JS;
@@ -44,6 +48,19 @@ gulp.task('copy', function () {
             base: './src/shared/'
         })
         .pipe(gulp.dest(distPath));
+});
+
+// Copy html file in source/ to public/
+gulp.task('copyHTML', function() {
+    return gulp.src('src/*.html')
+      .pipe(gulp.dest('./'));
+});
+
+// Copy html file in source/ to public/
+gulp.task('minifyHTML', ['copyHTML'], function() {
+  gulp.src('./*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest('./'));
 });
 
 // Compile Sass
@@ -92,8 +109,8 @@ gulp.task('sass:mobile', function () {
 
 // Minify the compiled CSS
 gulp.task('minifyCSS', function() {
-    return gulp.src(['dist/**/*.css', '!dist/**/*.min.css'])
-        .pipe($.cssnano())
+    return gulp.src('dist/**/*.css')
+        .pipe(cssnano())
         .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(distPath));
 });
@@ -175,7 +192,8 @@ gulp.task('minifyJS:mobile', function () {
 // Start a BrowserSync server, which you can view at http://localhost:3040
 gulp.task('browser-sync', ['build'], function () {
     browserSync.init({
-        startPath: 'mercadolibre/index.html',
+        port: 8080,
+        startPath: '/mercadolibre/index.html',
         server: {
             baseDir: [
                 // base path for views and demo assets
@@ -235,6 +253,8 @@ gulp.task('lint', function () {
 gulp.task('build', function (done) {
     runSequence([
         'copy',
+        'copyHTML',
+        'minifyHTML',
         'sass',
         'concatJS'
     ], done);
