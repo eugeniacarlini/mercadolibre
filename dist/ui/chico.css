@@ -3081,15 +3081,15 @@ dl.ch-list dd {
 .specs-product-container {
   max-width: 800px;
   min-width: 800px;
-  border: 1px solid gray;
+  border: 1px solid #dedede;
   padding: 30px;
   margin: auto;
   overflow: hidden;
 }
 
 .specs-product-container .main-title {
-  margin-top: 0;
-  margin-bottom: 15px;
+  margin: 0;
+  padding-bottom: 15px;
 }
 
 .specs-product-container .description-section {
@@ -3105,27 +3105,30 @@ dl.ch-list dd {
 .specs-product-container .description-section .product-info {
   width: 52%;
   float: left;
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
-.specs-product-container .description-section .product-info .product-form .label {
-  text-align: left;
-  width: auto;
+.specs-product-container hr {
+  margin: 30px 0;
 }
 
-.tabs {
-  margin: 0 auto;
-  min-width: 320px;
-  max-width: 800px;
+.specs-product-container .message {
+  padding: 5px 0;
 }
 
-.content {
+.tabs-content {
   color: #373737;
 }
 
-.content > div {
+.tabs-content > div {
   display: none;
-  padding: 20px 25px 5px;
+  padding: 20px;
+  border: 1px solid #dedede;
+}
+
+.tabs-content #product-description-content,
+.tabs-content #questions-content {
+  margin-top: -1px;
 }
 
 input {
@@ -3135,23 +3138,46 @@ input {
 label {
   display: inline-block;
   padding: 15px 25px;
-  font-weight: 600;
   text-align: center;
 }
 
 label:hover {
-  color: #000;
   cursor: pointer;
 }
 
-input:checked + label {
-  background: #ed5a6a;
-  color: #fff;
+input + label {
+  border-top: 1px solid #dedede;
+  border-right: 1px solid #dedede;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #dedede;
+  margin-right: 15px;
 }
 
-#tab1:checked ~ .content #content1,
-#tab2:checked ~ .content #content2 {
+input:checked + label {
+  border-bottom: 1px solid #fff;
+  background-color: white;
+}
+
+#product-description:checked ~ .tabs-content #product-description-content,
+#questions:checked ~ .tabs-content #questions-content {
   display: block;
+}
+
+form.product-form fieldset.price-container {
+  padding-bottom: 5px;
+}
+
+form.product-form fieldset.price-container .ch-price {
+  font-size: 24px;
+}
+
+form.product-form .ch-form-row > .label {
+  text-align: left;
+  width: 60px;
+}
+
+form.product-form fieldset.buy-product-container {
+  padding: 5px 0;
 }
 
 /*# sourceMappingURL=chico.css.map */

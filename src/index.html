@@ -14,7 +14,7 @@
 
 <body>
   <article class="specs-product-container">
-    <header class="header-product">
+    <header>
       <h1 class="main-title">Ipad Mini Apple 16 GB wifi Led 7.9</h1>
     </header>
 
@@ -22,25 +22,28 @@
 
       <section class="product-image">
         <figure>
-          <img src="dist/assets/img/holder.png" alt="Foto del producto">
+          <img src="dist/assets/img/holder.jpg" alt="Foto del producto">
         </figure>
       </section>
 
       <section class="product-info">
 
-        <article class="ch-price">
-          <strong>$4799 <sup>99</sup></strong>
-        </article>
-
         <form class="product-form">
-          <fieldset>
-            <div class="ch-form-row">
-              <label for="quantity" class="label">Quantity</label>
-              <select name="quantity" id="quantity" class="quantity-select">
-                <option value="1">1</option>
-              </select>
-            </div>
-            <div class="ch-form-row">
+
+          <fieldset class="price-container">
+            <article class="ch-price">
+              <strong>$4799 <sup>99</sup></strong>
+            </article>
+          </fieldset>
+
+          <fieldset class="ch-form-row">
+            <label for="quantity" class="label">Quantity</label>
+            <select name="quantity" id="quantity" class="quantity-select">
+              <option value="1">1</option>
+            </select>
+          </fieldset>
+
+          <fieldset class="ch-form-row">
               <label for="payments" class="label">Payments</label>
               <select name="payments" id="payments" class="payments-select">
                 <option value="1">1</option>
@@ -56,7 +59,9 @@
                 <option value="11">11</option>
                 <option value="12" selected>12</option>
               </select>
-            </div>
+          </fieldset>
+
+          <fieldset class="buy-product-container">
             <input type="submit" class="ch-btn ch-btn-large" value="Buy" />
           </fieldset>
         </form>
@@ -97,16 +102,30 @@
 
     <hr />
 
+    <section class="questions-section">
+      <input id="product-description" type="radio" name="tabs" />
+      <label for="product-description">Product description</label>
 
-    <div class="ch-box-info">
-      <h3>Buyer</h3>
-      <p>Do you have this one in white?</p>
-    </div>
+      <input id="questions" type="radio" name="tabs" checked />
+      <label for="questions">Questions</label>
 
-    <div class="ch-box-ok">
-      <h3>Seller</h3>
-      <p>No, I don't. I only have black</p>
-    </div>
+      <div class="tabs-content">
+        <div id="product-description-content">
+          <p>Content of product description</p>
+        </div>
+
+        <div id="questions-content">
+          <div class="ch-box-info">
+            <h3>Buyer</h3>
+            <p>Do you have this one in white?</p>
+          </div>
+          <div class="ch-box-ok">
+            <h3>Seller</h3>
+            <p>No, I don't. I only have black</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- <section class="questions-section">
       <article class="tabs-container">

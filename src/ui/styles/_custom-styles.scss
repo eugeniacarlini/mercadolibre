@@ -1,17 +1,20 @@
 // > Custom styles
 // ----------------------------------------------------------------
 
+$theme-border: 1px solid $gray-400 !default;
+// $tooltip-padding: 8px 10px !default;
+
 .specs-product-container {
   max-width: 800px;
   min-width: 800px;
-  border: 1px solid gray;
+  border: $theme-border;
   padding: 30px;
   margin: auto;
   overflow: hidden;
 
   .main-title {
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0;
+    padding-bottom: 15px;
   }
 
   .description-section {
@@ -26,14 +29,15 @@
     .product-info {
       width: 52%;
       float: left;
-      padding-top: 30px;
-
-      .product-form {
-        .label {
-          text-align: left;
-          width: auto;
-        }
-      }
+      padding-top: 15px;
     }
+  }
+
+  hr {
+    margin: 30px 0;
+  }
+
+  .message {
+    padding: 5px 0;
   }
 }
