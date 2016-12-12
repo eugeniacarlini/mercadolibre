@@ -3082,7 +3082,7 @@ dl.ch-list dd {
   overflow: hidden;
   margin: auto;
   padding: 30px;
-  width: 800px;
+  width: 850px;
 }
 
 .specs-product-container .main-title {
@@ -3157,11 +3157,11 @@ dl.ch-list dd {
   display: block;
 }
 
-form.product-form .ch-price {
+.product-form .ch-price {
   font-size: 22px;
 }
 
-form.product-form .ch-form-row > label {
+.product-form .ch-form-row > label {
   text-align: left;
   width: 60px;
 }
