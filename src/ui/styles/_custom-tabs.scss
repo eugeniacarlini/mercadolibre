@@ -1,49 +1,55 @@
 // > Custom Tabs
 // ----------------------------------------------------------------
 
-.tabs-content {
-	color: #373737;
+$custom-tab-padding: 15px !default;
+$custom-tab-margin: 15px !default;
 
-	> div {
+.questions-section {
+
+	input[type='radio'] {
 		display: none;
-		padding: 20px;
-		border: $theme-border;
+
+		 + label {
+			border-top: $custom-theme-border $custom-border-color;
+			border-right: $custom-theme-border $custom-border-color;
+			border-left: $custom-theme-border $custom-border-color;
+			margin-right: $custom-tab-margin;
+		}
+
+		&:checked + label {
+			background-color: $main-neutral-color;
+			border-bottom: $custom-theme-border $main-neutral-color;
+		}
 	}
 
-	#product-description-content,
-	#questions-content {
-		margin-top: -1px;
+	label {
+		display: inline-block;
+		padding: $custom-tab-padding;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
-}
 
-input {
-	display: none;
-}
+	.tabs-content {
 
-label {
-	display: inline-block;
-	padding: 15px 25px;
-	text-align: center;
+		.product-description-content,
+		.questions-content {
+			border: $custom-theme-border $custom-border-color;
+			display: none;
+			padding: $custom-tab-padding;
+		}
 
-	&:hover {
-		cursor: pointer;
+		.product-description-content,
+		.questions-content {
+			margin-top: -1px;
+		}
 	}
-}
 
-input + label {
-	border-top: 1px solid #dedede;
-	border-right: 1px solid #dedede;
-	border-bottom: 1px solid #fff;
-	border-left: 1px solid #dedede;
-	margin-right: 15px;
-}
-
-input:checked + label {
-	border-bottom: 1px solid #fff;
-	background-color: white;
-}
-
-#product-description:checked ~ .tabs-content #product-description-content,
-#questions:checked ~ .tabs-content #questions-content {
-	display: block;
+	#product-description:checked ~
+	.tabs-content .product-description-content,
+	#questions:checked ~
+	.tabs-content .questions-content {
+		display: block;
+	}
 }

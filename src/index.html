@@ -37,14 +37,14 @@
           </fieldset>
 
           <fieldset class="ch-form-row">
-            <label for="quantity" class="label">Quantity</label>
+            <label for="quantity">Quantity</label>
             <select name="quantity" id="quantity" class="quantity-select">
               <option value="1">1</option>
             </select>
           </fieldset>
 
           <fieldset class="ch-form-row">
-              <label for="payments" class="label">Payments</label>
+              <label for="payments">Payments</label>
               <select name="payments" id="payments" class="payments-select">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -109,39 +109,23 @@
       <input id="questions" type="radio" name="tabs" checked />
       <label for="questions">Questions</label>
 
-      <div class="tabs-content">
-        <div id="product-description-content">
+      <section class="tabs-content">
+        <section class="product-description-content">
           <p>Content of product description</p>
-        </div>
+        </section>
 
-        <div id="questions-content">
+        <section class="questions-content">
+          <h3>Buyer</h3>
           <div class="ch-box-info">
-            <h3>Buyer</h3>
             <p>Do you have this one in white?</p>
           </div>
+          <h3>Seller</h3>
           <div class="ch-box-ok">
-            <h3>Seller</h3>
             <p>No, I don't. I only have black</p>
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
     </section>
-
-    <!-- <section class="questions-section">
-      <article class="tabs-container">
-        <input id="tab1" type="radio" name="tabs" />
-        <label for="tab1">New York</label>
-        <div class="content">
-          <div id="content1"><p>New York</p></div>
-        </div>
-
-        <input id="tab2" type="radio" name="tabs" checked />
-        <label for="tab2">London</label>
-        <div class="content">
-          <div id="content2"><p>London</p></div>
-        </div>
-      </article>
-    </section> -->
   </article>
 
   <script src="dist/bundle.js"></script>
