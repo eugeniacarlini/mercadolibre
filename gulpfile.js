@@ -60,7 +60,7 @@ gulp.task('copyHTML', function() {
 // Minify the html file
 gulp.task('minifyHTML', ['copyHTML'], function() {
   gulp.src('./*.html')
-    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('./'));
 });
 
@@ -129,11 +129,11 @@ gulp.task('minifyCSS:mobile', function() {
 });
 
 // Concatenate all css minified files
-// gulp.task('concatCSS', function () {
-//     return gulp.src('dist/**/chico.min.css')
-//       .pipe(concatCss("bundle.css"))
-//       .pipe(gulp.dest(distPath));
-// });
+gulp.task('concatCSS', function () {
+    return gulp.src('dist/**/chico.min.css')
+      .pipe(concatCss("bundle.css"))
+      .pipe(gulp.dest(distPath));
+});
 
 // Concatenate JS
 gulp.task('concatJS', [
@@ -292,7 +292,7 @@ gulp.task('dist', function (done) {
     runSequence('build', [
         'minifyCSS',
         'minifyJS',
-        // 'concatCSS',
+        'concatCSS',
         'concatJS'
     ], done);
 });
@@ -301,7 +301,6 @@ gulp.task('dist', function (done) {
 gulp.task('dev', [
     'build',
     'dist'
-    // 'browser-sync'
 ]);
 
 // Default task: run the dev

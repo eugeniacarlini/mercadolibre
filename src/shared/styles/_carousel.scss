@@ -83,7 +83,8 @@
 }
 
 .ch-carousel-disabled {
-    display: none;
+    display: block;
+    opacity: 0.2;
 }
 
 /* Pagination */

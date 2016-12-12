@@ -1490,7 +1490,9 @@ a.ch-btn-large:focus {
 }
 
 .ch-carousel-disabled {
-  display: none;
+  display: block;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  opacity: 0.2;
 }
 
 /* Pagination */
@@ -3099,10 +3101,18 @@ dl.ch-list dd {
   width: 40%;
 }
 
+.specs-product-container .description-section .product-image img {
+  width: 100%;
+}
+
 .specs-product-container .description-section .product-info {
   float: right;
-  padding-top: 15px;
   width: 50%;
+}
+
+.specs-product-container .description-section .product-info .related-products h3 {
+  margin: 0;
+  padding-bottom: 15px;
 }
 
 .specs-product-container hr {
@@ -3163,6 +3173,11 @@ dl.ch-list dd {
 
 .product-form .ch-form-row > label {
   text-align: left;
+  width: 60px;
+}
+
+.product-form .ch-form-row > select {
+  display: inline;
   width: 60px;
 }
 

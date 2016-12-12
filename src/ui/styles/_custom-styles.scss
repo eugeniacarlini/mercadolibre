@@ -1,10 +1,7 @@
 // // > Custom styles
 // // ----------------------------------------------------------------
 
-$custom-theme-border: 1px solid !default;
-$custom-border-color: $gray-400 !default;
-$custom-theme-padding: 15px !default;
-$custom-theme-margin: 15px !default;
+@import 'custom-styles-variables';
 
 .specs-product-container {
   border: $custom-theme-border $custom-border-color;
@@ -24,15 +21,23 @@ $custom-theme-margin: 15px !default;
     .product-image {
       float: left;
       width: 40%;
+
+      img {
+        width: 100%;
+      }
     }
 
     .product-info {
       float: right;
-      padding-top: $custom-theme-padding;
       width: 50%;
+
+      .related-products h3 {
+        margin: 0;
+        padding-bottom: $custom-theme-padding;
+      }
     }
   }
-  
+
   hr {
     margin: $custom-theme-margin 0;
   }

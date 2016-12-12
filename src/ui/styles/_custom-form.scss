@@ -7,8 +7,16 @@
     font-size: $font__xx__large;
   }
 
-  .ch-form-row > label {
-    text-align: left;
-    width: 60px;
+  .ch-form-row {
+
+    > label {
+      text-align: left;
+      width: 60px;
+    }
+
+    > select {
+      display: inline;
+      width: 60px;
+    }
   }
 }

@@ -1261,7 +1261,8 @@ a.ch-btn-large:focus {
 }
 
 .ch-carousel-disabled {
-  display: none;
+  display: block;
+  opacity: .2;
 }
 
 .ch-carousel-pages {
@@ -3937,7 +3938,9 @@ a.ch-btn-large:focus {
 }
 
 .ch-carousel-disabled {
-  display: none;
+  display: block;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  opacity: .2;
 }
 
 .ch-carousel-pages {
@@ -5327,62 +5330,97 @@ dl.ch-list dd {
 }
 
 .specs-product-container {
-  max-width: 800px;
-  min-width: 400px;
-  border: 1px solid gray;
-  padding: 30px;
-  margin: auto;
+  border: 1px solid #dedede;
   overflow: hidden;
+  margin: auto;
+  padding: 30px;
+  width: 850px;
 }
 
 .specs-product-container .main-title {
-  margin-top: 0;
-  margin-bottom: 15px;
+  margin: 0;
+  padding-bottom: 15px;
 }
 
-.specs-product-container .image-product,
-.specs-product-container .product-info {
-  width: 50%;
+.specs-product-container .description-section {
+  overflow: hidden;
+}
+
+.specs-product-container .description-section .product-image {
   float: left;
+  width: 40%;
 }
 
-.tabs {
-  margin: 0 auto;
-  min-width: 320px;
-  max-width: 800px;
+.specs-product-container .description-section .product-image img {
+  width: 100%;
 }
 
-.content {
-  color: #373737;
+.specs-product-container .description-section .product-info {
+  float: right;
+  width: 50%;
 }
 
-.content>div {
+.specs-product-container .description-section .product-info .related-products h3 {
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+.specs-product-container hr {
+  margin: 15px 0;
+}
+
+.specs-product-container .message {
+  padding: 15px 0;
+}
+
+.questions-section input[type=radio] {
   display: none;
-  padding: 20px 25px 5px;
 }
 
-input {
-  display: none;
+.questions-section input[type=radio]+label {
+  border-top: 1px solid #dedede;
+  border-right: 1px solid #dedede;
+  border-left: 1px solid #dedede;
+  margin-right: 15px;
 }
 
-label {
+.questions-section input[type=radio]:checked+label {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.questions-section label {
   display: inline-block;
-  padding: 15px 25px;
-  font-weight: 600;
-  text-align: center;
+  padding: 15px;
 }
 
-label:hover {
-  color: #000;
+.questions-section label:hover {
   cursor: pointer;
 }
 
-input:checked+label {
-  background: #ed5a6a;
-  color: #fff;
+.questions-section .tabs-content .product-description-content,
+.questions-section .tabs-content .questions-content {
+  border: 1px solid #dedede;
+  display: none;
+  padding: 15px;
+  margin-top: -1px;
 }
 
-#tab1:checked~.content #content1,
-#tab2:checked~.content #content2 {
+.questions-section #product-description:checked~.tabs-content .product-description-content,
+.questions-section #questions:checked~.tabs-content .questions-content {
   display: block;
+}
+
+.product-form .ch-price {
+  font-size: 22px;
+}
+
+.product-form .ch-form-row>label {
+  text-align: left;
+  width: 60px;
+}
+
+.product-form .ch-form-row>select {
+  display: inline;
+  width: 60px;
 }
